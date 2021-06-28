@@ -58,15 +58,15 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// // Logout
-// router.post('/logout', (req, res) => {
-//   if (req.session.loggedIn) {
-//     req.session.destroy(() => {
-//       res.status(204).json({message: 'You successfully logged out'}).end();
-//     });
-//   } else {
-//     res.status(404).end();
-//   }
-// });
+// Logout
+router.post('/logout', (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).json({message: 'You successfully logged out'}).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
 
 module.exports = router;
