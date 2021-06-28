@@ -5,7 +5,7 @@ let sequelize;
 console.log('process.env.JAWSDB_URL!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', process.env.JAWSDB_URL)
 
 if (process.env.JAWSDB_URL) {
-    sequelize = new Sequelize(process.env.JAWSURL_DB);
+    sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
     sequelize = new Sequelize(
         process.env.DB_NAME,
