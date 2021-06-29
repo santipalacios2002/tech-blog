@@ -4,7 +4,7 @@ const path = require("path");
 router.get("/", async (req, res) => {
   try {
     console.log("went to route");
-    res.render('all');
+    res.render('login');
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
