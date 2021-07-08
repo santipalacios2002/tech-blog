@@ -4,12 +4,23 @@ const { Comment, Post, User } = require('../../models');
 // GET all posts
 router.get('/', async (req, res) => {
   try {
-    const postData = await Post.findAll();
+    const postData = await Post.findAll({
+      include: [{
+        model: Comment, required: true
+      },
+      {
+        model: User, required: true
+      }
+    ]
+
+    });
     res.status(200).json(postData);
   } catch (err) {
     res.status(500).json(err);
+    console.log('err:', err)
   }
 });
+
 
 
 // CREATE a post
@@ -25,41 +36,41 @@ router.post('/', async (req, res) => {
 // GET a single location
 router.get('/:id', async (req, res) => {
   try {
-    const locationData = await Location.findByPk(req.params.id, {
+    const postData = await Post.findByPk(req.params.id, {
       // JOIN with travellers, using the Trip through table
-      include: [{ model: Traveller, through: Trip, as: 'location_travellers' }]
+      include: { model: Comment}
     });
 
-    if (!locationData) {
-      res.status(404).json({ message: 'No location found with this id!' });
+    if (!postData) {
+      res.status(404).json({ message: 'No post found with this id!' });
       return;
     }
 
-    res.status(200).json(locationData);
+    res.status(200).json(postData);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
 
-// DELETE a location
-router.delete('/:id', async (req, res) => {
-  try {
-    const locationData = await Location.destroy({
-      where: {
-        id: req.params.id
-      }
-    });
+// // DELETE a location
+// router.delete('/:id', async (req, res) => {
+//   try {
+//     const locationData = await Location.destroy({
+//       where: {
+//         id: req.params.id
+//       }
+//     });
 
-    if (!locationData) {
-      res.status(404).json({ message: 'No location found with this id!' });
-      return;
-    }
+//     if (!locationData) {
+//       res.status(404).json({ message: 'No location found with this id!' });
+//       return;
+//     }
 
-    res.status(200).json(locationData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     res.status(200).json(locationData);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 module.exports = router;

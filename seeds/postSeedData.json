@@ -1,0 +1,22 @@
+[
+  {
+    "title": "My First Blog",
+    "body": "This will be my first blog",
+    "userId": 1
+  },
+  {
+    "title": "My Second Blog",
+    "body": "This will be my second blog",
+    "userId": 1
+  },
+  {
+    "title": "Love PHP",
+    "body": "Contrary to what Noah says, I think PHP is great",
+    "userId": 2
+  },
+  {
+    "title": "Anyone knows nodejs?",
+    "body": "Need help understanding nodejs",
+    "userId": 3
+  }
+]

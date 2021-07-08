@@ -5,7 +5,7 @@ const withAuth = require('../utils/auth');
 router.get("/", withAuth, async (req, res) => {
   try {
     console.log("went to root route");
-    res.render('main', { 
+    res.render('home', { 
       loggedIn: req.session.loggedIn 
     });
   } catch (err) {

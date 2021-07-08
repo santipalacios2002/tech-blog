@@ -1,0 +1,22 @@
+[
+  {
+    "body": "Welcome!",
+    "postId": 1,
+    "userId": 2
+  },
+  {
+    "body": "Welcome to the blog!",
+    "postId": 1,
+    "userId": 3
+  },
+  {
+    "body": "I know a bit, I could help!",
+    "postId": 4,
+    "userId": 2
+  },
+  {
+    "body": "That would be awesome! Thanks!",
+    "postId": 4,
+    "userId": 1
+  }
+]
